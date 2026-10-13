@@ -20,3 +20,6 @@ ehthumbs.db
 ehthumbs_vista.db
 [Dd]esktop.ini
 .DS_Store
+
+# Microsoft Office temporary files
+~$*

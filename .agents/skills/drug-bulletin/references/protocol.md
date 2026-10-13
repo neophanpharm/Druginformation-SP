@@ -56,6 +56,8 @@ Ghi đạt / cần sửa / không áp dụng với ghi chú cụ thể trong qa.
 - Tiêu đề, đề mục, nội dung, chú thích và diễn giải bảng bằng tiếng Việt; chỉ giữ tên riêng, tên hoạt chất, chữ viết tắt và thông tin thư mục gốc khi cần chính xác. Thuật ngữ chuyên môn được giải thích bằng tiếng Việt ở lần đầu.
 - Giọng văn đúng mẫu; viết tắt được giải thích; không còn chỉ dẫn template.
 - Thông tin bổ sung/hiện hành có nguồn xác minh và ngày truy cập.
+- Đã rà soát loại bỏ triệt để mã công thức LaTeX thô (`$...$`, `$$...$$`, `\text{...}`), chuyển sang ký tự Unicode y khoa tự nhiên.
+- Định dạng file Word (.docx) đạt chuẩn y tế: phông chữ Times New Roman đồng bộ 100% không nhảy font tiếng Việt, khổ A4, căn lề 2 bên (Justified), bảng biểu có viền sắc nét và tiêu đề màu xanh Navy, hộp ghi chú đóng khung rõ ràng.
 
 Sửa lỗi nội dung trước khi xuất. Có thể xuất với giới hạn được nêu rõ khi chỉ thiếu trường không thiết yếu. Nếu còn lỗi nguồn/số liệu cốt lõi, giữ draft trong work và báo điểm chặn. Trạng thái “đã kiểm tra theo nguồn” không đồng nghĩa được đơn vị/chuyên gia duyệt xuất bản.
 

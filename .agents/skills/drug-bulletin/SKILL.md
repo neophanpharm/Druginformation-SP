@@ -1,6 +1,6 @@
 ---
 name: drug-bulletin
-description: Viết và kiểm tra bản tin thông tin thuốc tiếng Việt từ PDF, DOCX, Markdown hoặc TXT, theo mẫu trong workspace và xuất Markdown có truy xuất bằng chứng.
+description: Viết và kiểm tra bản tin thông tin thuốc tiếng Việt từ PDF, DOCX, Markdown hoặc TXT, theo mẫu trong workspace và xuất song song Markdown và DOCX chuẩn y tế có truy xuất bằng chứng.
 ---
 
 # Bản tin thông tin thuốc
@@ -14,8 +14,8 @@ Dùng khi viết, sửa hoặc kiểm tra bản tin trong workspace này. Đọc
 3. Trích xuất bằng scripts/extract_sources.py. Đọc manifest.json; kiểm tra trực quan trang/bảng/hình chứa số liệu quan trọng với công cụ đọc PDF/DOCX phù hợp. Văn bản trích xuất không thay thế việc đọc nguồn gốc.
 4. Lập evidence.md theo protocol, có mã nguồn và vị trí cho mỗi phát biểu quan trọng. Thông tin không có trong nguồn ghi “không báo cáo”.
 5. Lập outline.md và draft.md. Phân biệt phát hiện nghiên cứu, kết luận tác giả và nhận định biên tập. Gắn trích dẫn gần phát biểu được hỗ trợ.
-6. Đối chiếu số liệu, diễn giải, nguồn và cấu trúc theo checklist, ghi qa.md. Sửa lỗi trước khi xuất. Nếu thiếu dữ liệu cốt lõi làm kết luận không đáng tin, giữ bản nháp và báo điểm chặn.
-7. Xuất output/<ten-ban-tin>.md, UTF-8, bằng tiếng Việt. Kiểm tra tiêu đề, đề mục, nội dung, chú thích và diễn giải bảng đều bằng tiếng Việt. Giữ tên hoạt chất, tên riêng, chữ viết tắt và thông tin thư mục gốc khi cần; giải thích thuật ngữ chuyên môn bằng tiếng Việt ở lần đầu. Trả đường dẫn và giới hạn có ảnh hưởng thực tế. Không ghi đè bản tin khác ngoài phạm vi yêu cầu.
+6. Đối chiếu số liệu, diễn giải, nguồn và cấu trúc theo checklist, rà soát loại bỏ triệt để mã công thức LaTeX thô, ghi qa.md. Sửa lỗi trước khi xuất. Nếu thiếu dữ liệu cốt lõi làm kết luận không đáng tin, giữ bản nháp và báo điểm chặn.
+7. Xuất `output/<ten-ban-tin>.md`, sau đó chạy `scripts/export_docx.py` để tạo `output/<ten-ban-tin>.docx` (đồng bộ phông chữ Times New Roman chống lỗi nhảy font tiếng Việt, khổ A4, căn lề 2 bên, viền bảng và tiêu đề xanh Navy chuẩn y tế). Kiểm tra tiêu đề, đề mục, nội dung, chú thích và diễn giải bảng đều bằng tiếng Việt. Giữ tên hoạt chất, tên riêng, chữ viết tắt và thông tin thư mục gốc khi cần; giải thích thuật ngữ chuyên môn bằng tiếng Việt ở lần đầu. Trả đường dẫn và giới hạn có ảnh hưởng thực tế. Không ghi đè bản tin khác ngoài phạm vi yêu cầu.
 
 ## Học từ mẫu
 

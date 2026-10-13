@@ -22,9 +22,9 @@ Ngôn ngữ đầu ra bắt buộc: tiếng Việt. Mặc định: độc giả 
 | 4. Lập dàn ý | Chọn thông điệp, mức độ chắc chắn và giới hạn áp dụng | outline.md |
 | 5. Viết | Viết tiếng Việt theo mẫu, gắn trích dẫn với phát biểu | draft.md |
 | 6. Kiểm tra | Đối chiếu số liệu, diễn giải, nguồn, cấu trúc và câu chữ | qa.md |
-| 7. Xuất | Lưu bản tin đã kiểm tra; báo rõ vướng mắc còn lại | output/ten-ban-tin.md |
+| 7. Xuất | Lưu bản tin đã kiểm tra dưới dạng Markdown và Word; báo rõ vướng mắc còn lại | output/ten-ban-tin.md, output/ten-ban-tin.docx |
 
-`work/` có thể chứa MD và JSON phục vụ kiểm tra; bản tin giao cho người dùng là MD. Không cần tạo hồ sơ mới nếu đang sửa một bản tin đã có đầy đủ hồ sơ phù hợp.
+`work/` có thể chứa MD và JSON phục vụ kiểm tra; bản tin giao cho người dùng gồm định dạng Markdown (`.md`) và tài liệu Word (`.docx`) chuẩn hóa trình bày. Không cần tạo hồ sơ mới nếu đang sửa một bản tin đã có đầy đủ hồ sơ phù hợp.
 
 ## Trích xuất bằng script
 
@@ -49,5 +49,35 @@ Mẫu mặc định: `templates/ban-tin-mac-dinh.md`. Hướng dẫn chi tiết 
 Khi có bản tin mẫu, lưu nó vào `templates/`, phân tích cấu trúc/giọng văn/độ dài/cách trích dẫn và ghi thành hồ sơ mẫu. Chỉ học cách viết; không tái sử dụng số liệu hoặc kết luận của mẫu cho chủ đề khác.
 
 Pipeline dùng nguồn được giao. Khi cần xác minh hướng dẫn, tình trạng cấp phép, cảnh báo an toàn hoặc nội dung y khoa ngoài tài liệu, agent tra nguồn chính thức cập nhật và ghi riêng nguồn bổ sung, ngày truy cập. Không âm thầm biến kết quả một nghiên cứu thành khuyến cáo hiện hành.
+
+## Xuất bản tin sang định dạng DOCX
+
+Bản tin cuối được xuất song song sang định dạng `.docx` bằng script chuyên dụng nhằm phục vụ in ấn, lưu hành trong bệnh viện hoặc trình Hội đồng Thuốc và Điều trị:
+
+```powershell
+# Chuyển đổi bản tin Markdown sang DOCX với định dạng bảng biểu, tiêu đề chuẩn y tế:
+& "D:/vampi/python.exe" .agents/skills/drug-bulletin/scripts/export_docx.py --input output/ten-ban-tin.md --output output/ten-ban-tin.docx
+```
+
+### Quy chuẩn thể thức file Word (.docx) chuẩn y tế:
+1. **Phông chữ chuẩn hóa:** Đồng bộ 100% phông chữ **Times New Roman** (chuẩn thể thức văn bản y tế và hành chính theo Nghị định 30/2020/NĐ-CP).
+2. **Khắc phục triệt để lỗi nhảy font tiếng Việt:** Script tự động tiêm cấu hình OpenXML XML `w:rFonts` cho mọi phân đoạn (Run):
+   `<w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman" w:eastAsia="Times New Roman"/>`.
+   Điều này đảm bảo mọi nguyên âm tiếng Việt có dấu (*ơ, ư, ệ, ế, ẩ, ỗ, ặ...*) không bao giờ bị nhảy sang phông chữ dự phòng khác.
+3. **Khổ giấy & Căn lề chuẩn:**
+   - Khổ giấy A4 (21,0 cm × 29,7 cm).
+   - Căn lề: Trái 2,5 cm; Phải 2,0 cm; Trên 2,0 cm; Dưới 2,0 cm.
+4. **Trình bày đoạn văn & Tiêu đề:**
+   - Tiêu đề chính: 16 pt, Đậm, Xanh Navy (`#003366`), căn giữa.
+   - Đề mục lớn: 13,5 pt, Đậm, Xanh (`#003C78`).
+   - Đề mục nhỏ: 12,5 pt, Đậm, Xanh (`#144B82`).
+   - Thân bài: 12 pt, căn đều hai bên (**Justified**), khoảng cách dòng 1.15, cách đoạn dưới 4–5 pt.
+5. **Định dạng bảng biểu & Hộp ghi chú:**
+   - Bảng biểu có viền kẻ mỏng sắc nét màu xám xanh (`#B0C4DE`), tiêu đề bảng nền xanh Navy (`#003366`) chữ trắng in đậm, các dòng dữ liệu xen kẽ trắng và xám nhạt (`#F7F9FB`), căn giữa theo chiều dọc.
+   - Hộp ghi chú (Callout box): Đóng khung có viền trái xanh đậm 3 pt (`#003366`) và nền xám xanh nhạt (`#F0F4F8`) cho các cảnh báo, lưu ý và phác đồ cứu vãn.
+6. **Làm sạch ký hiệu toán & công thức thô:**
+   - Loại bỏ hoàn toàn mã LaTeX thô (`$...$`, `$$...$$`, `\text{...}`) trong văn bản xuất bản; chuyển sang ký tự Unicode tự nhiên (`Zn²⁺`, `Fe³⁺`, `β`, `≥`, `≤`, `µg/mL`).
+
+
 
 
