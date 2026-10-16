@@ -40,9 +40,13 @@ Với tổng quan: ngày chốt tìm kiếm, số nghiên cứu/người tham gi
 
 ## Cấu trúc và văn phong
 
-Dùng mẫu được chỉ định; nếu chưa có dùng templates/ban-tin-mac-dinh.md. Tiêu đề trung tính. Nêu bối cảnh, thiết kế, hiệu quả, an toàn, hạn chế và ý nghĩa thực hành. Kết luận không mạnh hơn bằng chứng. Ưu tiên tên hoạt chất; giải thích viết tắt ở lần đầu. Không dùng lời quảng cáo như “đột phá”, “an toàn tuyệt đối”. Có thể dùng bảng nhỏ hoặc bullet khi giúp người đọc.
+Dùng mẫu được chỉ định; nếu chưa có dùng templates/ban-tin-mac-dinh.md. Tiêu đề trung tính, mang tính khẳng định khoa học. Nêu bối cảnh, cơ chế, thiết kế, hiệu quả, an toàn, liều lượng, hạn chế và ý nghĩa thực hành. Kết luận không mạnh hơn bằng chứng. Ưu tiên tên hoạt chất; giải thích viết tắt ở lần đầu. Không dùng lời quảng cáo như “đột phá”, “an toàn tuyệt đối”. 
 
-Trích dẫn [1], [2] gần phát biểu. Tài liệu tham khảo đánh số theo lần xuất hiện, có DOI/URL khi có và xác minh được. Evidence dùng S01 + vị trí; lưu ánh xạ S01 → [1] trong qa. Mọi kết quả chính và dữ liệu an toàn phải truy được về nguồn. Nguồn ngoài bài ghi ngày truy cập. Hồ sơ nội bộ không đưa vào bản tin cuối.
+**Tiêu chuẩn văn phong chuyên khảo sâu (Narrative Density):**
+- Ưu tiên cấu trúc các **đoạn văn phân tích hoàn chỉnh, lập luận logic, liền mạch** nhằm truyền tải dung lượng thông tin lâm sàng dày dặn.
+- **Hạn chế tối đa gạch đầu dòng liệt kê vụn vặt** trong thân bài. Phần tóm tắt tổng quan, phân tích cơ chế phân tử, bằng chứng thử nghiệm lâm sàng và khuyến nghị thực hành đều được diễn giải thành câu văn và đoạn văn hoàn chỉnh. Bảng biểu chỉ dùng cho phần liều dùng PK/PD và theo dõi độc tính.
+
+Trích dẫn [1], [2] gần phát biểu. Tài liệu tham khảo đánh số theo lần xuất hiện đầu tiên (1 đến N theo chuẩn Vancouver), có DOI/URL khi có và xác minh được. Evidence dùng S01/E01 + vị trí; lưu ánh xạ E01 → [1] trong qa. Mọi kết quả chính và dữ liệu an toàn phải truy được về nguồn. Nguồn ngoài bài ghi ngày truy cập. Hồ sơ nội bộ không đưa vào bản tin cuối.
 
 ## Checklist trước khi xuất
 
@@ -53,11 +57,17 @@ Ghi đạt / cần sửa / không áp dụng với ghi chú cụ thể trong qa.
 - Số, dấu, đơn vị, khoảng tin cậy và phép tính thêm được đối chiếu.
 - Trích dẫn hỗ trợ đúng phát biểu, thông tin thư mục không tự dựng.
 - Hiệu quả, an toàn, giới hạn và khả năng áp dụng được diễn giải đúng mức.
+- Bố cục thân bài ưu tiên đoạn văn phân tích mạch lạc, giàu thông tin; không lạm dụng gạch đầu dòng vụn vặt.
 - Tiêu đề, đề mục, nội dung, chú thích và diễn giải bảng bằng tiếng Việt; chỉ giữ tên riêng, tên hoạt chất, chữ viết tắt và thông tin thư mục gốc khi cần chính xác. Thuật ngữ chuyên môn được giải thích bằng tiếng Việt ở lần đầu.
 - Giọng văn đúng mẫu; viết tắt được giải thích; không còn chỉ dẫn template.
 - Thông tin bổ sung/hiện hành có nguồn xác minh và ngày truy cập.
-- Đã rà soát loại bỏ triệt để mã công thức LaTeX thô (`$...$`, `$$...$$`, `\text{...}`), chuyển sang ký tự Unicode y khoa tự nhiên.
-- Định dạng file Word (.docx) đạt chuẩn y tế: phông chữ Times New Roman đồng bộ 100% không nhảy font tiếng Việt, khổ A4, căn lề 2 bên (Justified), bảng biểu có viền sắc nét và tiêu đề màu xanh Navy, hộp ghi chú đóng khung rõ ràng.
+- Đã rà soát loại bỏ triệt để mã công thức LaTeX thô (`$...$`, `$$...$$`, `\text{...}`), chuyển sang ký tự Unicode y khoa tự nhiên (`Zn²⁺`, `Fe³⁺`, `β`, `≥`, `≤`, `µg/mL`).
+- Định dạng file Word (.docx) đạt chuẩn y tế:
+  * Phông chữ Times New Roman đồng bộ 100% không nhảy font tiếng Việt (`w:rFonts` đầy đủ cả 4 thuộc tính OpenXML ngay tại index 0).
+  * Danh mục tài liệu tham khảo thụt lề treo (Hanging Indent 0.35 inch) đánh số độc lập từ 1 đến N (khớp 100% với trích dẫn `[1]`–`[N]`).
+  * Khổ A4, căn lề 2 bên (Justified).
+  * Bảng biểu lặp lại tiêu đề khi tràn trang (`tblHeader`) và chống cắt ngang dòng (`cantSplit`).
+  * Chân trang (Footer) tự động đánh số trang.
 
 Sửa lỗi nội dung trước khi xuất. Có thể xuất với giới hạn được nêu rõ khi chỉ thiếu trường không thiết yếu. Nếu còn lỗi nguồn/số liệu cốt lõi, giữ draft trong work và báo điểm chặn. Trạng thái “đã kiểm tra theo nguồn” không đồng nghĩa được đơn vị/chuyên gia duyệt xuất bản.
 

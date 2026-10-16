@@ -1,35 +1,49 @@
 # {{Tiêu đề phản ánh chủ đề và mức độ kết luận}}
 
-*Ngày biên soạn: {{YYYY-MM-DD}} | Phạm vi: {{chủ đề/nhóm người bệnh}}*
+*Ngày biên soạn: {{YYYY-MM-DD}} | Cơ quan chủ trì: Ban Dược lâm sàng & Thông tin thuốc | Tài liệu tham chiếu: {{Nguồn gốc}}*
 
-## Điểm chính
+---
 
-{{2–3 ý ngắn về phát hiện, an toàn và giới hạn, có trích dẫn.}}
+## TÓM TẮT TỔNG QUAN LÂM SÀNG
 
-## Bối cảnh
+{{Đoạn 1: Bối cảnh bệnh học, vấn đề điều trị và thách thức vi sinh/dược lý cốt lõi, có trích dẫn [1].}}
 
-{{Vấn đề lâm sàng và mục tiêu nghiên cứu, dựa trên nguồn.}}
+{{Đoạn 2: Phác đồ ưu tiên hàng đầu, cơ chế tác dụng, bằng chứng thử nghiệm lâm sàng chính và giải pháp thay thế, có trích dẫn [1, 2].}}
 
-## Nghiên cứu và kết quả
+{{Đoạn 3: Cảnh báo an toàn, nguy cơ đề kháng mới nổi hoặc lưu ý đối tượng đặc biệt cần theo dõi dược lâm sàng.}}
 
-{{Thiết kế, đối tượng, quy mô, can thiệp/đối chứng và thời gian theo dõi.}}
+---
 
-{{Kết quả chính với số liệu, loại hiệu số và khoảng tin cậy phù hợp.}}
+## 1. BỐI CẢNH VÀ CƠ CHẾ DƯỢC LÝ / VI SINH
 
-## An toàn và hạn chế
+{{1–2 đoạn văn phân tích chi tiết cơ chế phân tử, đích tác dụng sinh học, vị trí gắn kết, tính nhạy cảm in vitro và hiện tượng đề kháng liên quan.}}
 
-{{Dữ liệu an toàn, giới hạn nghiên cứu và khả năng áp dụng.}}
+---
 
-## Ý nghĩa thực hành
+## 2. BẰNG CHỨNG THỬ NGHIỆM LÂM SÀNG & HIỆU QUẢ ĐIỀU TRỊ
 
-{{Diễn giải thận trọng, phân biệt kết quả nghiên cứu và khuyến cáo đã xác minh.}}
+{{Các đoạn văn chuyên sâu phân tích thiết kế nghiên cứu (pha 3 RCT, phân tích gộp hoặc đoàn hệ tiền cứu), quy mô mẫu số, can thiệp/đối chứng, tỷ lệ khỏi lâm sàng và tỷ lệ sống sót, kèm các số liệu thống kê cụ thể.}}
 
-## Kết luận
+---
 
-{{1–2 câu về thông điệp chính và điểm chưa chắc chắn.}}
+## 3. CHẾ ĐỘ LIỀU TỐI ƯU PK/PD & THEO DÕI AN TOÀN
 
-## Tài liệu tham khảo
+{{Đoạn văn phân tích nguyên lý tối ưu hóa liều dựa trên dược động học/dược lực học (truyền kéo dài, nồng độ đỉnh/đáy, mục tiêu fT > MIC).}}
 
-1. {{Thông tin thư mục; DOI/URL nếu có và xác minh được.}}
+| Thuốc / Phác đồ | Liều nạp | Liều duy trì & Khoảng cách | Thời gian truyền | Lưu ý chỉnh liều & Độc tính |
+|---|---|---|---|---|
+| {{Hoạt chất 1}} | {{Liều}} | {{Liều & khoảng cách}} | {{Thời gian}} | {{Lưu ý}} |
 
-<!-- Mẫu mặc định chưa hiệu chỉnh theo mẫu người dùng. Xóa mọi chỉ dẫn khi xuất bản tin. -->
+---
+
+## 4. KHUYẾN NGHỊ THỰC HÀNH CHO DƯỢC SĨ VÀ BÁC SĨ
+
+{{Các đoạn văn hướng dẫn cụ thể việc triển khai xét nghiệm chẩn đoán, chuẩn hóa quy trình tiêm truyền/pha chế, giám sát biến cố bất lợi và kiểm soát thời gian dùng kháng sinh hợp lý.}}
+
+---
+
+## TÀI LIỆU THAM KHẢO
+
+1. {{Thông tin thư mục chuẩn Vancouver; DOI/URL nếu có và xác minh được.}}
+
+<!-- Mẫu mặc định định hướng cấu trúc đoạn văn chuyên khảo sâu, hạn chế gạch đầu dòng. Xóa mọi chỉ dẫn khi xuất bản tin. -->

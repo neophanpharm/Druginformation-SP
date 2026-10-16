@@ -28,7 +28,7 @@ def apply_font_to_run(run, font_name=FONT_NAME, font_size_pt=None, color_rgb=Non
     # Replace existing rFonts if present
     for existing in rPr.findall(qn('w:rFonts')):
         rPr.remove(existing)
-    rPr.append(rFonts)
+    rPr.insert(0, rFonts)
 
     if font_size_pt is not None:
         run.font.size = Pt(font_size_pt)
@@ -114,7 +114,7 @@ def markdown_to_docx(md_path, docx_path):
 
     doc = docx.Document()
 
-    # Configure A4 page dimensions and medical margins (Left 2.5cm, Right 2cm, Top 2cm, Bottom 2cm)
+    # Configure A4 page dimensions, medical margins and footer
     for section in doc.sections:
         section.page_width = Cm(21.0)
         section.page_height = Cm(29.7)
@@ -123,6 +123,18 @@ def markdown_to_docx(md_path, docx_path):
         section.left_margin = Cm(2.5)
         section.right_margin = Cm(2.0)
 
+        # Subtle footer with automatic page numbering
+        footer = section.footer
+        footer_p = footer.paragraphs[0]
+        footer_p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+        footer_p.paragraph_format.space_before = Pt(0)
+        footer_p.paragraph_format.space_after = Pt(0)
+        f_run = footer_p.add_run("Bản tin Thông tin thuốc | Trang ")
+        apply_font_to_run(f_run, FONT_NAME, font_size_pt=9.5, color_rgb=RGBColor(128, 128, 128), italic=True)
+        fld_run = footer_p.add_run()
+        apply_font_to_run(fld_run, FONT_NAME, font_size_pt=9.5, color_rgb=RGBColor(128, 128, 128))
+        fld_run._r.append(parse_xml(r'<w:fldSimple %s w:instr="PAGE"/>' % nsdecls('w')))
+
     # Style definitions
     normal_style = doc.styles['Normal']
     normal_style.font.name = FONT_NAME
@@ -130,6 +142,7 @@ def markdown_to_docx(md_path, docx_path):
     normal_style.font.color.rgb = RGBColor(35, 35, 35)
 
     i = 0
+    in_references = False
     table_lines = []
 
     def flush_table(tbl_lines):
@@ -153,6 +166,11 @@ def markdown_to_docx(md_path, docx_path):
         for row_idx, r_data in enumerate(rows_data):
             row = table.rows[row_idx]
             is_header = (row_idx == 0)
+            trPr = row._tr.get_or_add_trPr()
+            trPr.append(parse_xml(f'<w:cantSplit {nsdecls("w")}/>'))
+            if is_header:
+                trPr.append(parse_xml(f'<w:tblHeader {nsdecls("w")}/>'))
+
             for col_idx in range(num_cols):
                 cell_text = r_data[col_idx] if col_idx < len(r_data) else ""
                 cell = row.cells[col_idx]
@@ -228,11 +246,16 @@ def markdown_to_docx(md_path, docx_path):
 
         # Heading 2
         if raw_strip.startswith('## '):
+            h_title = raw_strip[3:].strip()
+            if 'TÀI LIỆU THAM KHẢO' in h_title.upper():
+                in_references = True
+            else:
+                in_references = False
             h = doc.add_paragraph()
             h.paragraph_format.space_before = Pt(14)
             h.paragraph_format.space_after = Pt(4)
             h.paragraph_format.keep_with_next = True
-            add_formatted_runs(h, raw_strip[3:], base_font_size=13.5, base_bold=True, base_color=RGBColor(0, 60, 120))
+            add_formatted_runs(h, h_title, base_font_size=13.5, base_bold=True, base_color=RGBColor(0, 60, 120))
             i += 1
             continue
 
@@ -258,23 +281,28 @@ def markdown_to_docx(md_path, docx_path):
 
         # Blockquote / Highlight Callout Box
         if raw_strip.startswith('>'):
-            quote_text = raw_strip.lstrip('>').strip()
-            p = doc.add_paragraph()
-            p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-            p.paragraph_format.left_indent = Inches(0.4)
-            p.paragraph_format.right_indent = Inches(0.2)
-            p.paragraph_format.space_before = Pt(6)
-            p.paragraph_format.space_after = Pt(6)
+            quote_lines = []
+            while i < len(lines) and lines[i].strip().startswith('>'):
+                quote_lines.append(lines[i].strip().lstrip('>').strip())
+                i += 1
 
-            # Border and shading XML
-            pPr = p._p.get_or_add_pPr()
-            p_border = parse_xml(f'<w:pBdr {nsdecls("w")}><w:left w:val="single" w:sz="24" w:space="12" w:color="003366"/></w:pBdr>')
-            p_shd = parse_xml(f'<w:shd {nsdecls("w")} w:fill="F0F4F8"/>')
-            pPr.append(p_border)
-            pPr.append(p_shd)
+            for q_idx, quote_text in enumerate(quote_lines):
+                p = doc.add_paragraph()
+                p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+                p.paragraph_format.left_indent = Inches(0.4)
+                p.paragraph_format.right_indent = Inches(0.2)
+                p.paragraph_format.space_before = Pt(6) if q_idx == 0 else Pt(1.5)
+                p.paragraph_format.space_after = Pt(6) if q_idx == len(quote_lines) - 1 else Pt(1.5)
+                p.paragraph_format.line_spacing = 1.15
 
-            add_formatted_runs(p, quote_text, base_font_size=11.5, base_color=RGBColor(20, 40, 60))
-            i += 1
+                # Border and shading XML
+                pPr = p._p.get_or_add_pPr()
+                p_border = parse_xml(f'<w:pBdr {nsdecls("w")}><w:left w:val="single" w:sz="24" w:space="12" w:color="003366"/></w:pBdr>')
+                p_shd = parse_xml(f'<w:shd {nsdecls("w")} w:fill="F0F4F8"/>')
+                pPr.append(p_border)
+                pPr.append(p_shd)
+
+                add_formatted_runs(p, quote_text, base_font_size=11.5, base_color=RGBColor(20, 40, 60))
             continue
 
         # Bullet List
@@ -289,16 +317,22 @@ def markdown_to_docx(md_path, docx_path):
             i += 1
             continue
 
-        # Numbered List
+        # Numbered List / References (explicit numbering with hanging indent to eliminate cross-list continuous numbering)
         num_match = re.match(r'^(\d+)\.\s+(.*)$', raw_strip)
         if num_match:
+            num_idx = num_match.group(1)
             num_text = num_match.group(2).strip()
-            p = doc.add_paragraph(style='List Number')
+            p = doc.add_paragraph()
             p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+            p.paragraph_format.left_indent = Inches(0.35)
+            p.paragraph_format.first_line_indent = Inches(-0.35)
             p.paragraph_format.space_before = Pt(2)
-            p.paragraph_format.space_after = Pt(3)
+            p.paragraph_format.space_after = Pt(3.5 if in_references else 3)
             p.paragraph_format.line_spacing = 1.15
-            add_formatted_runs(p, num_text, base_font_size=12)
+            font_size = 11 if in_references else 12
+            num_run = p.add_run(f"{num_idx}.\t")
+            apply_font_to_run(num_run, FONT_NAME, font_size_pt=font_size, bold=True)
+            add_formatted_runs(p, num_text, base_font_size=font_size)
             i += 1
             continue
 

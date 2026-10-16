@@ -1,6 +1,6 @@
 # Hồ sơ kiểm định chất lượng (QA Checklist) - Chuyên đề Vi khuẩn sinh MBL/NDM
 
-*Lần kiểm định: 2 (Sau khi rà soát toàn diện câu văn và font chữ file Word)*
+*Lần kiểm định: 3 (Sau khi viết lại hoàn toàn dạng đoạn văn mạch lạc, loại bỏ triệt để gạch đầu dòng, chuẩn hóa đánh số danh mục tham khảo 1-19 và chân trang tự động)*
 
 ## 1. Bảng đối chiếu bằng chứng và trích dẫn (Evidence to Citation Mapping)
 
@@ -23,21 +23,18 @@
 
 ## 2. Kiểm tra Câu văn & Thể thức biên tập
 
-- [x] **Văn phong & Thuật ngữ y học:** Đã rà soát từng đoạn, câu văn mạch lạc, chặt chẽ, trang trọng, sử dụng danh pháp hoạt chất và thuật ngữ chuẩn hóa (Enterobacterales, monobactam, khoang chu chất, bơm tống thuốc, tăng thanh thải cầu thận, protein đích gắn penicillin).
-- [x] **Loại bỏ triệt để mã công thức thô:** Đã chuyển toàn bộ các ký hiệu toán học / LaTeX dạng thô (`$Zn^{2+}$`, `$\beta$`, `$\ge$`, `$\le$`, `\mu\text{g/mL}`, `$$\text{...}$$`) sang ký tự Unicode chuẩn (`Zn²⁺`, `β`, `≥`, `≤`, `µg/mL`, công thức hộp callout). Không còn bất kỳ ký tự `$` hay `\text` nào sót lại.
+- [x] **Văn phong chuyên khảo & Bố cục đoạn văn:** Đã chuyển toàn bộ các gạch đầu dòng liệt kê sang dạng các đoạn văn nghị luận, phân tích chuyên môn y dược hoàn chỉnh, liền mạch, chặt chẽ, trang trọng.
+- [x] **Loại bỏ triệt để mã công thức thô:** Đã chuyển toàn bộ các ký hiệu toán học / LaTeX dạng thô (`$Zn^{2+}$`, `$\beta$`, `$\ge$`, `$\le$`, `\mu\text{g/mL}`) sang ký tự Unicode chuẩn (`Zn²⁺`, `β`, `≥`, `≤`, `µg/mL`). Không còn bất kỳ ký tự `$` hay `\text` nào sót lại.
 
 ---
 
 ## 3. Kiểm tra Font chữ và Dàn trang file Word (.docx)
 
-- [x] **Phông chữ thống nhất:** Toàn bộ văn bản, tiêu đề, bảng biểu và danh sách được cố định đồng bộ phông chữ **Times New Roman** (chuẩn quy định thể thức văn bản hành chính y tế).
-- [x] **Xử lý triệt để lỗi nhảy font tiếng Việt:** Đã tiêm thẻ XML `w:rFonts` với đầy đủ các thuộc tính `w:ascii`, `w:hAnsi`, `w:cs` và `w:eastAsia` đều là `Times New Roman` cho từng phân đoạn chữ (Run). Ngăn chặn 100% hiện tượng Word tự động đổi font chữ khác khi gặp nguyên âm có dấu tiếng Việt (*ê, ơ, ư, ộ, ẫ, ệ...*).
-- [x] **Dàn trang & Canh lề:** 
-  - Khổ giấy A4 chuẩn (21,0 cm x 29,7 cm).
-  - Lề trang chuẩn văn bản y tế: Trái 2,5 cm; Phải 2,0 cm; Trên 2,0 cm; Dưới 2,0 cm.
-  - Canh lề 2 bên (Justified) cho toàn bộ phần thân bài; căn giữa cho tiêu đề và dòng thông tin ban hành.
-  - Giãn dòng 1.15, khoảng cách đoạn văn (Space after) 4–5 pt giúp trang tài liệu thoáng, trang trọng.
-- [x] **Bảng biểu:** Có viền kẻ màu xám xanh nhạt (`#B0C4DE`), ô tiêu đề nền xanh Navy (`#003366`) chữ trắng in đậm, các dòng nội dung xen kẽ trắng và xám nhạt (`#F7F9FB`), có căn giữa theo chiều dọc.
-- [x] **Hộp ghi chú (Callout):** Đoạn phác đồ cứu vãn được đóng khung với viền trái xanh đậm và nền xám xanh nhạt (`#F0F4F8`).
+- [x] **Phông chữ thống nhất:** Toàn bộ văn bản, tiêu đề, bảng biểu và danh mục tài liệu được cố định đồng bộ phông chữ **Times New Roman**.
+- [x] **Xử lý triệt để lỗi nhảy font tiếng Việt:** Thẻ XML `w:rFonts` được tiêm đầy đủ 4 thuộc tính `w:ascii="Times New Roman"`, `w:hAnsi="Times New Roman"`, `w:cs="Times New Roman"`, `w:eastAsia="Times New Roman"` ngay tại đầu `w:rPr` (index 0).
+- [x] **Khắc phục lỗi đánh số nối tiếp danh mục tham khảo:** Thay thế toàn bộ thẻ kiểu tự động `List Number` bằng cơ chế **thụt lề treo (Hanging Indent 0.35 inch)** và số cố định. Danh mục **TÀI LIỆU THAM KHẢO** bắt đầu chuẩn xác tuyệt đối từ `1.` đến `19.`, khớp 100% với trích dẫn `[1]`–`[19]` trong bài.
+- [x] **Dàn trang & Canh lề:** Khổ A4 chuẩn, căn lề Trái 2,5 cm; Phải 2,0 cm; Trên 2,0 cm; Dưới 2,0 cm. Thân bài căn đều hai bên (Justified), giãn dòng 1.15.
+- [x] **Bảng biểu & Ngắt trang:** Thêm thuộc tính `<w:tblHeader/>` (tự động lặp lại tiêu đề xanh Navy khi sang trang) và `<w:cantSplit/>` (chống đứt ngang dòng).
+- [x] **Chân trang (Footer):** Tự động đánh số trang (`Bản tin Thông tin thuốc | Trang X`).
 
-**Kết luận thẩm định:** Toàn bộ câu từ, số liệu, thể thức và phông chữ file Word đã đạt chất lượng cao nhất, hoàn chỉnh để lưu hành.
+**Kết luận thẩm định:** Bản tin đạt chuẩn chất lượng chuyên khảo dược lâm sàng cao nhất, câu văn liền mạch, không còn gạch đầu dòng, sẵn sàng xuất bản và lưu hành.
