@@ -13,7 +13,7 @@ Dùng khi viết, sửa hoặc kiểm tra bản tin trong workspace này. Đọc
    - Ưu tiên cấu trúc các **đoạn văn phân tích hoàn chỉnh, lập luận logic, liền mạch** nhằm chuyển tải và kết nối lượng thông tin y dược dày dặn (cơ chế phân tử, vi sinh, thử nghiệm lâm sàng, dược động học/dược lực học PK/PD).
    - **Hạn chế tối đa việc sử dụng gạch đầu dòng liệt kê vụn vặt** trong phần thân bài. Các phần tóm tắt, cơ chế, bằng chứng lâm sàng và khuyến nghị thực hành đều được diễn giải thành câu văn và đoạn văn hoàn chỉnh.
 2. **Chuẩn mực Y học Chứng cứ (EBM) & Truy xuất bằng chứng:**
-   - Mọi số liệu, kết cục lâm sàng (tỷ lệ khỏi bệnh, tỷ lệ sống sót, tử vong, $f\text{T} > \text{MIC}$, MIC breakpoints) phải gắn liền với nguồn gốc, mẫu số và khoảng tin cậy nếu có.
+   - Mọi số liệu, kết cục lâm sàng (tỷ lệ khỏi bệnh, tỷ lệ sống sót, tử vong, fT > MIC, MIC breakpoints) phải gắn liền với nguồn gốc, mẫu số và khoảng tin cậy nếu có.
    - Trích dẫn theo quy chuẩn Vancouver `[1], [2]...` xuất hiện tuần tự từ 1 đến N theo thứ tự xuất hiện lần đầu trong bài.
 3. **Quy chuẩn xuất bản song song (Markdown & Word DOCX chuẩn y tế):**
    - File Markdown dùng Unicode tự nhiên (`Zn²⁺`, `Fe³⁺`, `β`, `≥`, `≤`, `µg/mL`), cấm để sót mã LaTeX thô (`$...$`).
@@ -25,10 +25,14 @@ Dùng khi viết, sửa hoặc kiểm tra bản tin trong workspace này. Đọc
 2. **Trích xuất:** Chạy `scripts/extract_sources.py`. Đọc `manifest.json`; kiểm tra trực quan trang/bảng/hình chứa số liệu quan trọng với công cụ đọc PDF/DOCX phù hợp.
 3. **Lập bằng chứng:** Lập `work/<ten-ban-tin>/evidence.md` theo protocol, có mã bằng chứng (E01, E02...) và vị trí trang/đoạn/bảng cụ thể cho mỗi phát biểu. Thông tin không có trong nguồn ghi “không báo cáo”.
 4. **Lập dàn ý:** Lập `work/<ten-ban-tin>/outline.md`, tổ chức bài viết thành các mục và đoạn văn phân tích mạch lạc, xác định thông điệp then chốt và phân tầng phác đồ.
-5. **Viết bản thảo:** Viết `work/<ten-ban-tin>/draft.md` bằng tiếng Việt theo phong cách chuyên khảo, giàu đoạn văn, hạn chế gạch đầu dòng. Gắn trích dẫn `[1], [2]` sát phát biểu được hỗ trợ.
+5. **Viết bản thảo:** **Bắt buộc đọc và áp dụng skill `.agents/skills/drug-bulletin-writer/SKILL.md`** trước khi viết `work/<ten-ban-tin>/draft.md`. Tuân thủ kiến trúc đoạn văn 3 lớp, 5 quy tắc gọt câu tiếng Việt y khoa (khử danh từ hóa `việc/sự`, chuyển bị động sang chủ động tự nhiên, giới hạn câu 30–45 từ, bỏ từ ngữ khoa trương) và thực hiện 3 vòng tự biên tập. Gắn trích dẫn `[1], [2]` sát phát biểu được hỗ trợ.
 6. **Kiểm tra (QA):** Rà soát số liệu, câu văn, loại bỏ triệt để mã công thức LaTeX thô, đối chiếu 100% trích dẫn, ghi `work/<ten-ban-tin>/qa.md`.
 7. **Xuất bản:** Lưu `output/<ten-ban-tin>.md`, sau đó chạy `scripts/export_docx.py` để tạo `output/<ten-ban-tin>.docx`. Kiểm tra tiêu đề, đề mục, nội dung, chú thích và bảng biểu đều chuẩn tiếng Việt và đúng quy cách thể thức y tế.
 
 ## Học từ mẫu
 
 Đọc bản tin mẫu người dùng cung cấp trước khi viết. Ghi `templates/<ten-mau>-profile.md` với thứ tự phần, độ dài, giọng văn, thuật ngữ, cách trình bày số liệu và trích dẫn. Giữ nguyên mẫu gốc. Chỉ học cấu trúc và phong cách, không tái dùng dữ liệu hoặc kết luận của mẫu cho chủ đề khác. Không mặc định mở rộng tìm kiếm nếu nhiệm vụ chỉ là biên tập theo nguồn; khi cần xác minh thông tin hiện hành, tra nguồn chính thức và ghi chú rõ ràng.
+
+## Bổ sung bằng chứng qua PubMed / preprint
+
+Khi được yêu cầu tìm thêm bằng chứng, dùng connector PubMed và bioRxiv/medRxiv theo mục "Tra cứu tài liệu qua connector" trong `AGENTS.md`: ghi `work/<ten-ban-tin>/search-log.md`, cấp mã `S0x` kèm PMID/DOI vào sổ nguồn ở Giai đoạn 2, chỉ lưu toàn văn khi bản quyền cho phép, và gắn nhãn preprint. Bài truy xuất phải qua cùng bước trích xuất và đánh giá bằng chứng như tài liệu trong `Input/`.
