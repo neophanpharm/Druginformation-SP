@@ -1,0 +1,55 @@
+{
+  "hospital": {
+    "nameVi": "BỆNH VIỆN ĐA KHOA XANH PÔN",
+    "nameEn": "SAINT PAUL HOSPITAL",
+    "sloganVi": "Truyền thống Trăm năm – Tiên phong Công nghệ",
+    "sloganEn": "Centuries of Tradition – Pioneer in Technology",
+    "source": "Template chân trang.pptx"
+  },
+  "logos": {
+    "round": { "file": "brand/logo-xanhpon-tron.png", "size": "301x268", "background": "white", "note": "Đặt trên nền trắng hoặc thẻ trắng bo góc; không phóng quá ~400 px chiều cao để tránh mờ. Nên xin file vector/PNG độ phân giải cao từ bệnh viện." },
+    "sph": { "file": "brand/logo-sph.png", "size": "344x236", "background": "white" }
+  },
+  "colors": {
+    "brandRed": "#C00000",
+    "brandNavy": "#002060",
+    "white": "#FFFFFF",
+    "ink": "#0B1F3A",
+    "background": "#F6F8FB",
+    "dangerContent": "#E4572E",
+    "warn": "#F2B134",
+    "safe": "#2FBF71"
+  },
+  "fonts": {
+    "primary": "Be Vietnam Pro",
+    "weights": [400, 600, 700, 800],
+    "loader": "@remotion/google-fonts/BeVietnamPro"
+  },
+  "disclaimer": {
+    "status": "draft",
+    "approvedBy": null,
+    "approvedDate": null,
+    "card": "Nội dung dành cho nhân viên y tế, mang tính tham khảo, không thay thế phác đồ điều trị và chỉ định của bác sĩ. Thông tin được tổng hợp từ tài liệu khoa học đã công bố và nhãn thuốc, cập nhật đến {thang_nam}.",
+    "short": "Thông tin dành cho nhân viên y tế · Tham khảo, không thay thế chỉ định của bác sĩ",
+    "postDescription": "Video mang tính thông tin tham khảo cho nhân viên y tế. Không sử dụng để tự chẩn đoán hoặc tự điều trị. Danh mục tài liệu tham khảo (PMID/DOI) kèm theo."
+  },
+  "music": [
+    {
+      "id": "reel-bg-01",
+      "file": "nhạc nền video reel.mp3",
+      "durationSec": 156.03,
+      "bitrateKbps": 256,
+      "license": "chưa xác nhận",
+      "allowedUse": "chỉ bản nháp nội bộ cho tới khi xác nhận giấy phép",
+      "note": "File không có metadata tác giả/bản quyền. Khi dùng trong Remotion, sao chép vào video-studio/public/music/."
+    }
+  ],
+  "voice": {
+    "provider": "ElevenLabs",
+    "modelId": "eleven_v4",
+    "voiceId": "ObhtJZSfI8Ps4i8lwyVx",
+    "voiceName": "Minh Son – Bright, Calm Storyteller (giọng nam trẻ Hà Nội, giọng Bắc)",
+    "language": "vi"
+  },
+  "audioTargets": { "integratedLufs": [-16, -14], "truePeakDb": -1, "musicUnderVoice": [0.12, 0.18], "musicInGaps": [0.35, 0.45] }
+}

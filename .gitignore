@@ -23,3 +23,11 @@ ehthumbs_vista.db
 
 # Microsoft Office temporary files
 ~$*
+
+# Remotion video studio
+video-studio/node_modules/
+video-studio/out/
+
+video-studio/public/audio/
+video-studio/public/music/
+
