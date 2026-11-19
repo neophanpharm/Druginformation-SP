@@ -2,21 +2,30 @@
   "name": "xanhpon-drug-video-studio",
   "private": true,
   "version": "1.0.0",
-  "description": "Remotion studio dựng video 2D thông tin thuốc – BV Đa khoa Xanh Pôn",
+  "description": "Remotion studio dựng video thông tin thuốc – BV Đa khoa Xanh Pôn (khung medical-clean)",
   "scripts": {
     "studio": "remotion studio src/index.ts",
     "still": "remotion still src/index.ts",
     "render": "remotion render src/index.ts ErtapenemSeizure ../output/video/ertapenem-co-giat.mp4 --codec h264 --crf 18 --audio-bitrate 192k",
-    "typecheck": "tsc --noEmit"
+    "render:reel": "remotion render src/index.ts ErtapenemReel ../output/video/ertapenem-co-giat-reel-9x16.mp4 --codec h264 --crf 17 --audio-bitrate 192k --gl=angle --concurrency 3",
+    "typecheck": "tsc --noEmit",
+    "render:mc": "remotion render src/index.ts ErtapenemMC out/ertapenem-mc-raw.mp4 --codec h264 --crf 17 --audio-bitrate 192k --concurrency 4 --timeout 120000"
   },
   "dependencies": {
+    "@react-three/drei": "9.122.0",
+    "@react-three/fiber": "8.18.0",
+    "@remotion/captions": "4.0.528",
     "@remotion/cli": "4.0.528",
     "@remotion/google-fonts": "4.0.528",
     "@remotion/media-utils": "4.0.528",
+    "@remotion/noise": "4.0.528",
+    "@remotion/three": "4.0.528",
     "@remotion/transitions": "4.0.528",
+    "@types/three": "0.169.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "remotion": "4.0.528"
+    "remotion": "4.0.528",
+    "three": "0.169.0"
   },
   "devDependencies": {
     "@types/react": "18.3.12",

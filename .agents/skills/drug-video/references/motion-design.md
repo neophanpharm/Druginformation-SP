@@ -2,6 +2,29 @@
 
 Mục tiêu: video **sinh động, đẹp, đáng tin**. Cảm giác hướng tới giống một phim giải thích y khoa cao cấp: sạch, sáng, chiều sâu rõ, chuyển động mượt, chữ rõ, nhịp theo nhạc. Không lòe loẹt, không giật cục.
 
+## 0. Khung "medical-clean" là lớp ngoài cùng (bắt buộc)
+
+Mọi video đặt nội dung bên trong khung chuẩn của Khoa Dược. Thông số nằm trong `brand/brand.json → frame`, bố cục ở `PIPELINE-VIDEO.md` mục 1.
+
+- **Khung:**
+  - header bệnh viện cố định cao 176 px;
+  - nền trắng;
+  - eyebrow và tiêu đề màu đỏ đô / mực `#2A0A12`;
+  - phụ đề viên đỏ `rgba(190,18,56,.96)` ở đáy 82 px;
+  - footer `NGUỒN: PMID …` và `TRANG XX / YY` ở đáy 26 px.
+- **Chuyển động sống bên trong khung:** header và footer đứng yên, chỉ vùng nội dung (y 210–1652) chuyển động. Vì vậy cảm giác "sinh động" phải đến từ vật thể 3D, số chạy, đường vẽ dần và các phần tử hiện lệch nhịp, không đến từ nền.
+- **Chuyển từ nền tối sang nền sáng** (so với bản v2 nền tối): những mục dưới đây nói "bokeh", "glow", "vignette" thì áp dụng phiên bản tông sáng:
+  - nền trắng hoặc gradient rất nhạt `#FFF5F7` → `#FFFFFF`;
+  - bóng đổ mềm `0 12px 40px rgba(190,18,56,.08–.12)` thay cho quầng sáng;
+  - hạt lơ lửng màu `rgba(190,18,56,.08)` hoặc xanh ngọc nhạt;
+  - không dùng vignette tối, không dùng bloom.
+- **3D trên nền trắng:**
+  - vật liệu bóng (`clearcoat`), độ nhám vừa;
+  - ánh sáng: `ambientLight` 0,6, key ấm 1,2, fill lạnh 0,5;
+  - bóng tiếp xúc (`ContactShadows` của drei hoặc một mặt phẳng bóng mờ) dưới vật thể;
+  - màu vật thể bão hòa vừa để nổi trên nền trắng: xanh ngọc `#0FA3A3`, cam `#F08A24`, xanh dương `#3B7DDD`, tím `#8B5CF6`, xanh lá `#2FBF71`.
+- **Nhãn trên vật thể 3D:** thẻ trắng viền đỏ đô mảnh, chữ `#2A0A12`. Không dùng chữ trắng trên nền sáng.
+
 ---
 
 ## 1. Thanh chất lượng (bắt buộc)
@@ -35,7 +58,9 @@ Mục tiêu: video **sinh động, đẹp, đáng tin**. Cảm giác hướng t�
 | Cơ quan (thận, não, gan), dòng máu, dược động học | **3D** hoặc **2.5D** | 3D cho cảnh hero, 2.5D cho cảnh phụ |
 | Biểu đồ (forest plot, đường cong nồng độ), số liệu, so sánh | **2.5D infographic** | Phẳng thì đọc chính xác hơn; thêm chiều sâu bằng thẻ nổi và đổ bóng |
 | Checklist thực hành, timeline, yếu tố nguy cơ | **2.5D** | Chữ rõ, bố cục dạng thẻ |
-| Logo, disclaimer, kết | **2D sạch** + ánh sáng | Bảo toàn nhận diện thương hiệu |
+| Trang lưu ý, outro | **2D sạch trong khung**, chữ hiện lần lượt từ dưới lên, "camera thở" nhẹ | Theo template HyperFrames; logo gốc 136 px, không cắt, không vòng sáng, không phóng to |
+
+**Phong cách minh họa đã duyệt (bản ertapenem medical-clean):** flat vector viền đậm `#2A2F45`, màu pastel (xanh ngọc, tím nhạt, cam san hô), bóng tiếp xúc mềm, dựng bằng SVG trong `src/mc/art.tsx`. Vùng nội dung có "camera thở" (dịch và scale rất nhẹ) và hạt nền chuyển động để không có khoảng tĩnh quá 2 giây.
 
 ### 3D trong Remotion (`@remotion/three`)
 - Dùng `<ThreeCanvas>` với `width/height` của composition, `camera={{ fov: 35 }}`.
@@ -74,24 +99,40 @@ Mục tiêu: video **sinh động, đẹp, đáng tin**. Cảm giác hướng t�
   - nhãn: đường dẫn vẽ dần, rồi chữ hiện.
 - **Không:** chữ chạy ngang liên tục, chữ xoay 3D khó đọc, quá 3 cỡ chữ trong một khung.
 
-## 4. Phụ đề nổi bật (KineticCaption)
+## 4. Phụ đề (CaptionPill – chữ thường)
 
-- **Dữ liệu:** `voiceover/<id>.words.json` lấy từ `creative_transcribe_audio`, đã sửa chính tả theo kịch bản. Chuyển sang dạng `Caption[]` của `@remotion/captions`, rồi `createTikTokStyleCaptions({ combineTokensWithinMilliseconds: 900 })`.
-- **Hiển thị:** tối đa 2 dòng, ≤ 42 ký tự mỗi dòng, căn giữa, phía trên footer.
-- **Trạng thái từng từ:**
-  - chưa đọc: trắng 60% trên thanh nền navy 80% bo 14 px;
-  - đang đọc: trắng 100%, scale 1.06;
-  - từ khóa (`captionKeywords`): xanh ngọc hoặc vàng `#F2B134`, đậm 800.
-- **Thời gian:** hiện trước tiếng 2 khung, ẩn sau tiếng 6 khung. Lệch ≤ 3 khung so với tiếng.
-- **Bản 9:16:** phụ đề to hơn (52–60 px), ở khoảng 62–70% chiều cao màn hình.
+- **Dữ liệu:** `video-studio/src/reel/captions.json` (`[chữ, giây đầu, giây cuối]` theo shot), lấy từ `creative_transcribe_audio` và đã sửa chính tả theo kịch bản.
+- **Hiển thị: viên đỏ của khung medical-clean, như template.**
+  - Nền `rgba(190,18,56,.96)`, chữ trắng 36 px/700 (31 px khi dòng > 40 ký tự), padding 18×30, bo 20 px, rộng tối đa 950 px.
+  - Bóng `0 14px 34px rgba(190,18,56,.24)`, viền 1,5 px trắng 18%.
+  - Mỗi lần hiện 1 cụm ≤ 50 ký tự (1 dòng), căn giữa, đáy 82 px.
+- **Không nhấn mạnh trong phụ đề:** cả dòng trắng 100%. Không karaoke (đọc/chưa đọc), không gạch chân, không chip hay tô màu từ khóa. Bản có chip từ khóa đã bị người dùng đánh giá "rất xấu". Việc nhấn mạnh thuộc về hình và nhãn trong vùng nội dung (mục 4b).
+- **Ngắt cụm theo nghĩa** (`phraseChunks` trong `src/mc/kit.tsx`, dùng chung cho SRT):
+  - luôn ngắt ở dấu chấm;
+  - gộp các vế cách nhau dấu phẩy nếu vừa 50 ký tự;
+  - vế dài thì ngắt trước hư từ gần giữa nhất ("…nên dễ bị nhầm với bệnh tâm thần | hay nhiễm trùng thần kinh");
+  - không tách từ ghép ("xuất | hiện", "co | giật" là lỗi). Một khoảng lặng > 12 khung cũng tạo ngắt.
+- **Thời gian:**
+  - Hiện trước tiếng 2 khung, ẩn sau tiếng 6 khung. Lệch ≤ 3 khung so với tiếng.
+  - Khi chuyển giữa các câu liền nhau, đổi chữ ngay tức thì, viên không mờ đi hay nhấp nháy (như template).
+- **Biến thể Reels/TikTok:** nâng viên phụ đề lên đáy 330 px.
 - **Luôn xuất thêm `.srt`** để nền tảng hỗ trợ phụ đề tắt/bật.
+
+## 4b. Nhấn mục đang đọc (focus theo lời đọc)
+
+Mẫu chuyển động chính cho mọi danh sách, bảng và biểu đồ:
+- **Mục đang đọc:** opacity 1, scale 1,02, viền hoặc vạch trái đỏ đô `#BE1238`, bóng mềm.
+- **Mục chưa đọc hoặc đã qua:** opacity 0,45, blur 1–2 px. Mục đã qua có thể giữ dấu tích xanh `#0F766E`.
+- **Biểu đồ đường, timeline, forest plot:** vẽ dần (`strokeDashoffset`) tới đúng mốc đang được nói. Điểm dữ liệu hiện ra khi từ tương ứng được đọc.
+- **Mốc thời gian:** lấy từ `captions.json` qua trường `focus` trong `timeline.json`, không ước lượng. Chuyển trạng thái trong 8–10 khung với easing ra-vào.
+- **Camera trong cảnh 2.5D:** đẩy nhẹ (2–4%) và trượt tới mục đang đọc. Kiểu "camera theo mục hiện tại".
 
 ## 5. Chuyển cảnh
 
 | Ý nghĩa | Kiểu |
 |---|---|
 | Đi sâu vào bên trong (cơ thể → tế bào → phân tử) | Zoom xuyên qua đối tượng (match cut theo vật thể) hoặc `iris` |
-| Chuyển chương (dược lý → ADR → thực hành) | `slide` hoặc wipe có màu thương hiệu, kèm whoosh nhẹ |
+| Chuyển chương (dược lý → ADR → thực hành) | `slide` ngang hoặc wipe dải đỏ đô `#BE1238` mảnh chỉ trong vùng nội dung (header và footer đứng yên), kèm whoosh nhẹ |
 | Cùng chủ đề, đổi góc nhìn | Fade 10–15 khung hoặc camera tiếp tục chuyển động sang cảnh mới |
 | Cảnh báo, điểm quan trọng | Hạ sáng nền + callout, kèm khoảng lặng nhạc 0,3–0,5 giây |
 

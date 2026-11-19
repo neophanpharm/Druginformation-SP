@@ -7,10 +7,21 @@
     "source": "Template chân trang.pptx"
   },
   "logos": {
-    "round": { "file": "brand/logo-xanhpon-tron.png", "size": "301x268", "background": "white", "note": "Đặt trên nền trắng hoặc thẻ trắng bo góc; không phóng quá ~400 px chiều cao để tránh mờ. Nên xin file vector/PNG độ phân giải cao từ bệnh viện." },
-    "sph": { "file": "brand/logo-sph.png", "size": "344x236", "background": "white" }
+    "round": {
+      "file": "brand/logo-xanhpon-tron.png",
+      "size": "301x268",
+      "background": "white",
+      "note": "Đặt trên nền trắng hoặc thẻ trắng bo góc; không phóng quá ~400 px chiều cao để tránh mờ. Nên xin file vector/PNG độ phân giải cao từ bệnh viện."
+    },
+    "sph": {
+      "file": "brand/logo-sph.png",
+      "size": "344x236",
+      "background": "white"
+    },
+    "usageRule": "Dùng nguyên bản, không cắt khung tròn, không vòng trang trí, không phóng to quá cỡ gốc (header 112 px, outro 136 px)."
   },
   "colors": {
+    "_note": "brandRed/brandNavy lấy từ Template chân trang.pptx. Khung video medical-clean dùng đỏ đô #BE1238/#880E28 theo template HyperFrames của Khoa Dược (xem frame.palette). Logo PNG giữ nguyên màu gốc.",
     "brandRed": "#C00000",
     "brandNavy": "#002060",
     "white": "#FFFFFF",
@@ -20,9 +31,120 @@
     "warn": "#F2B134",
     "safe": "#2FBF71"
   },
+  "frame": {
+    "id": "medical-clean",
+    "status": "mặc định cho mọi video (từ 18/11/2026)",
+    "reference": "D:/OPENCODE-VIBING/Reel- Thông Tin Thuốc/src/reel/render/html.ts + styles.ts (theme medical-clean) – chỉ tham chiếu, không sửa",
+    "canvas": {
+      "width": 1080,
+      "height": 1920,
+      "fps": 30
+    },
+    "palette": {
+      "bg": "#FFFFFF",
+      "surface": "#FFFFFF",
+      "surface2": "#FFF5F7",
+      "ink": "#2A0A12",
+      "muted": "#6E4752",
+      "primary": "#BE1238",
+      "primaryDeep": "#880E28",
+      "accent": "#9F1239",
+      "warning": "#BE1238",
+      "warningSoft": "#FFF1F3",
+      "good": "#0F766E",
+      "line": "rgba(190,18,56,0.14)",
+      "captionBg": "rgba(190,18,56,0.96)",
+      "captionInk": "#FFFFFF"
+    },
+    "header": {
+      "position": "top 0, cao 176 px, nền #FFFFFF, viền dưới 4 px #BE1238 + đoạn 32% bên phải #880E28, bóng 0 10px 30px rgba(190,18,56,.06)",
+      "grid": "118px | 1fr | 136px, padding 18px 34px 14px, gap 14px",
+      "left": "logo tròn 112×112 (brand/logo-xanhpon-tron.png)",
+      "right": "logo SPH 132×106 (brand/logo-sph.png)",
+      "center": [
+        {
+          "text": "BỆNH VIỆN ĐA KHOA XANH PÔN",
+          "size": 27,
+          "weight": 900,
+          "color": "#BE1238",
+          "letterSpacing": "0.03em"
+        },
+        {
+          "text": "SAINT PAUL HOSPITAL",
+          "size": 22,
+          "weight": 800,
+          "color": "#880E28",
+          "letterSpacing": "0.05em"
+        },
+        {
+          "text": "Truyền thống Trăm năm - Tiên phong Công nghệ | Centuries of Tradition - Pioneer in Technology",
+          "size": 13.8,
+          "weight": 700,
+          "color": "#6E4752",
+          "separatorColor": "#BE1238"
+        }
+      ],
+      "rule": "Header cố định suốt các cảnh nội dung, không chuyển cảnh theo nội dung; không thêm subheader-bar."
+    },
+    "content": {
+      "left": 68,
+      "right": 68,
+      "top": 210,
+      "bottom": 268
+    },
+    "typography": {
+      "eyebrow": "22px 800, 0.15em, IN HOA, #BE1238",
+      "h2": "76px (62/52) 800, -0.025em, #2A0A12",
+      "display": "102px (84/70)",
+      "body": "46px (39/34) 500",
+      "bullet": "37px 600, số trong vòng tròn 54px nền #BE1238",
+      "table": "th 22px 800 IN HOA #BE1238 viền dưới 3px; td 29px",
+      "footnote": "25px #6E4752"
+    },
+    "captions": {
+      "position": "left/right 56 px, đáy 82 px, hộp cao 162 px, căn giữa",
+      "pill": "nền rgba(190,18,56,.96), chữ #FFFFFF 36px 700 (câu dài 31px), padding 18px 30px, bo 20px, bóng 0 14px 34px rgba(190,18,56,.24), viền 1.5px rgba(255,255,255,.18), max 950 px",
+      "style": "Chữ thường: cả dòng trắng 100%, KHÔNG karaoke, KHÔNG gạch chân, KHÔNG chip/tô màu từ khóa (người dùng duyệt 19/11/2026). Viên không nhấp nháy khi chuyển câu liên tiếp.",
+      "chunking": "phraseChunks (video-studio/src/mc/kit.tsx, dùng chung cho SRT): ≤ 50 ký tự/cụm, luôn ngắt ở dấu chấm, gộp vế cách dấu phẩy nếu vừa, vế dài ngắt trước hư từ gần giữa nhất, không tách từ ghép."
+    },
+    "footer": {
+      "position": "left/right 68 px, đáy 26 px, padding-top 12 px, viền trên 1.5px rgba(190,18,56,.14), 18px 700, 0.05em, IN HOA, màu #6E4752",
+      "left": "NGUỒN: NHÃN … – MỤC x · PMID a, b, c — hiện ĐỦ mọi nguồn của cảnh (PMID gộp một cụm), tối đa 2 dòng, 16 px khi dài; không cắt \"+n\"/\"…\". Danh mục đầy đủ vẫn có trong -nguon.md",
+      "right": "TRANG 04 / 14 – màu #BE1238 (đánh số các cảnh có sources, gồm cả outro là trang cuối; không tính trang lưu ý)"
+    },
+    "removed": [
+      "subheader-bar",
+      "nút CTA ở hook/outro",
+      "badge đè lên hình",
+      "họa tiết nền mờ (.blob, .grain, .ghost, .index-num)",
+      "watermark góc trên phải (header đã có logo)"
+    ],
+    "reelSafeVariant": "Khi đăng TikTok/Reels/Shorts: nâng phụ đề lên đáy 330 px và footer lên đáy 280 px, thu vùng nội dung bottom = 520 px, để tránh lớp nút/chú thích của ứng dụng. Mặc định giữ đúng vị trí template (web/fanpage/YouTube).",
+    "opening": {
+      "scene": "DISCLAIMER",
+      "durationFrames": 150,
+      "voice": null,
+      "layout": "Trong khung (header, không footer): eyebrow \"LƯU Ý\" 22px/800 #BE1238 · tiêu đề \"Thông tin tham khảo\" 76px/800 #BE1238 · thân = disclaimer.card 40px #6E4752",
+      "note": "Không có cảnh mở logo riêng – header đã có logo."
+    },
+    "outro": {
+      "reference": "Outro video template HyperFrames (video-medical-clean.mp4)",
+      "layout": "Trong khung (header + footer trang cuối), căn giữa: logo-xanhpon-tron.png 136px contain → \"KHOA DƯỢC – BỆNH VIỆN ĐA KHOA XANH PÔN\" 24px/800 caps 0.18em #BE1238 → tiêu đề thông điệp chốt 66–78px/800 #BE1238 (ngắt dòng bằng \"|\") → gạch đỏ → 1 câu lưu ý 30px #6E4752",
+      "footerSource": "Khoa Dược – Bệnh viện Đa khoa Xanh Pôn",
+      "voiceTemplate": "<thông điệp chốt của video>. Biên soạn bởi Khoa Dược, Bệnh viện Đa khoa Xanh Pôn.",
+      "voiceExample": "Nhận diện sớm độc tính thần kinh khi dùng ertapenem giúp xử trí kịp thời và bảo vệ người bệnh. Biên soạn bởi Khoa Dược, Bệnh viện Đa khoa Xanh Pôn.",
+      "voiceLeadFrames": 30,
+      "rules": "Không đọc slogan. Không cắt tròn/thêm vòng/phóng to logo. Phụ đề vẫn chạy trong outro."
+    }
+  },
   "fonts": {
     "primary": "Be Vietnam Pro",
-    "weights": [400, 600, 700, 800],
+    "weights": [
+      400,
+      600,
+      700,
+      800
+    ],
     "loader": "@remotion/google-fonts/BeVietnamPro"
   },
   "disclaimer": {
@@ -51,5 +173,25 @@
     "voiceName": "Minh Son – Bright, Calm Storyteller (giọng nam trẻ Hà Nội, giọng Bắc)",
     "language": "vi"
   },
-  "audioTargets": { "integratedLufs": [-16, -14], "truePeakDb": -1, "musicUnderVoice": [0.12, 0.18], "musicInGaps": [0.35, 0.45] }
+  "audioTargets": {
+    "integratedLufs": [
+      -16,
+      -14
+    ],
+    "truePeakDb": -1,
+    "musicUnderVoice": [
+      0.12,
+      0.18
+    ],
+    "musicInGaps": [
+      0.35,
+      0.45
+    ],
+    "measuredReference": "video-medical-clean.mp4 của template: -16,3 LUFS, đỉnh -1,0 dBFS"
+  },
+  "tools": {
+    "ffmpegFull": "D:/OPENCODE-VIBING/Reel- Thông Tin Thuốc/tools/ffmpeg-9.0.2-full_build/bin/ffmpeg.exe",
+    "ffprobeFull": "D:/OPENCODE-VIBING/Reel- Thông Tin Thuốc/tools/ffmpeg-9.0.2-full_build/bin/ffprobe.exe",
+    "note": "ffmpeg đi kèm Remotion thiếu bộ lọc ebur128/loudnorm; dùng bản đầy đủ này để đo và chuẩn hóa âm lượng."
+  }
 }

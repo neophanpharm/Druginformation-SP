@@ -1,0 +1,1063 @@
+{
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "transitionFrames": 12,
+ "voiceLeadFrames": 15,
+ "music": {
+  "file": "music/bg-reel.mp3",
+  "voiceVolume": 0.16,
+  "gapVolume": 0.4,
+  "fadeInFrames": 45,
+  "fadeOutFrames": 90,
+  "rampFrames": 10
+ },
+ "scenes": [
+  {
+   "id": "DISCLAIMER",
+   "chapter": "",
+   "title": "",
+   "dur": 150,
+   "voice": null,
+   "voiceSec": 0,
+   "transition": "fade",
+   "sources": [],
+   "onScreen": [
+    {
+     "key": "eyebrow",
+     "text": "LƯU Ý",
+     "role": "label"
+    },
+    {
+     "key": "title",
+     "text": "Thông tin tham khảo",
+     "role": "title"
+    },
+    {
+     "key": "body",
+     "text": "Nội dung dành cho nhân viên y tế, mang tính tham khảo, không thay thế phác đồ điều trị và chỉ định của bác sĩ. Thông tin được tổng hợp từ tài liệu khoa học đã công bố và nhãn thuốc, cập nhật đến 11/2026.",
+     "role": "disclaimer"
+    }
+   ]
+  },
+  {
+   "id": "HOOK",
+   "chapter": "THÔNG TIN THUỐC · CARBAPENEM",
+   "title": "Ertapenem &|nguy cơ co giật",
+   "dur": 225,
+   "voice": "S01",
+   "voiceSec": 6,
+   "transition": "fade",
+   "sources": [
+    "Nhãn INVANZ® – mục 1, 2.1–2.2"
+   ],
+   "keywords": [
+    "Ertapenem",
+    "carbapenem,"
+   ],
+   "onScreen": [
+    {
+     "key": "lede",
+     "text": "Điều dược sĩ, bác sĩ cần biết",
+     "role": "lede"
+    },
+    {
+     "key": "dose",
+     "text": "1 g × 1 lần/ngày",
+     "role": "stat",
+     "fact": "F1"
+    },
+    {
+     "key": "doseLabel",
+     "text": "Liều chuẩn người lớn · truyền TM 30 phút",
+     "role": "label",
+     "fact": "F1"
+    }
+   ],
+   "focus": []
+  },
+  {
+   "id": "FAMILY",
+   "chapter": "01 · NHÓM THUỐC",
+   "title": "Họ carbapenem",
+   "dur": 300,
+   "voice": "S02",
+   "voiceSec": 8.05,
+   "transition": "fade",
+   "sources": [
+    "PMID 21449629",
+    "PMID 24744302"
+   ],
+   "keywords": [
+    "β-lactam.",
+    "ertapenem",
+    "imipenem,",
+    "meropenem",
+    "doripenem."
+   ],
+   "onScreen": [
+    {
+     "key": "ring",
+     "text": "Vòng β-lactam",
+     "role": "label",
+     "fact": "F2"
+    },
+    {
+     "key": "erta",
+     "text": "Ertapenem",
+     "role": "label",
+     "fact": "F2"
+    },
+    {
+     "key": "imi",
+     "text": "Imipenem",
+     "role": "label",
+     "fact": "F2"
+    },
+    {
+     "key": "mero",
+     "text": "Meropenem",
+     "role": "label",
+     "fact": "F2"
+    },
+    {
+     "key": "dori",
+     "text": "Doripenem",
+     "role": "label",
+     "fact": "F2"
+    }
+   ],
+   "focus": [
+    [
+     "ring",
+     0
+    ],
+    [
+     "erta",
+     3.36
+    ],
+    [
+     "imi",
+     4.72
+    ],
+    [
+     "mero",
+     5.76
+    ],
+    [
+     "dori",
+     7.04
+    ],
+    [
+     "erta",
+     8.3
+    ]
+   ]
+  },
+  {
+   "id": "PD",
+   "chapter": "02 · DƯỢC LỰC HỌC",
+   "title": "Phá thành tế bào vi khuẩn",
+   "dur": 315,
+   "voice": "S03",
+   "voiceSec": 8.67,
+   "transition": "fade",
+   "sources": [
+    "Nhãn INVANZ® – mục 12.4"
+   ],
+   "keywords": [
+    "penicillin,",
+    "Ertapenem",
+    "β-lactamase"
+   ],
+   "onScreen": [
+    {
+     "key": "pbp",
+     "text": "PBP 2, 3",
+     "role": "label",
+     "fact": "F3"
+    },
+    {
+     "key": "kill",
+     "text": "Ức chế tổng hợp thành tế bào → diệt khuẩn",
+     "role": "stat",
+     "fact": "F3"
+    },
+    {
+     "key": "esbl",
+     "text": "Bền với β-lactamase phổ rộng (ESBL)",
+     "role": "stat",
+     "fact": "F3"
+    },
+    {
+     "key": "mbl",
+     "text": "Bị metallo-β-lactamase thủy phân",
+     "role": "label",
+     "fact": "F3"
+    }
+   ],
+   "focus": [
+    [
+     "kill",
+     0.64
+    ],
+    [
+     "esbl",
+     5.2
+    ]
+   ]
+  },
+  {
+   "id": "PK",
+   "chapter": "03 · DƯỢC ĐỘNG HỌC",
+   "title": "Albumin, t½ & thận",
+   "dur": 345,
+   "voice": "S04",
+   "voiceSec": 8.96,
+   "transition": "slide",
+   "sources": [
+    "Nhãn INVANZ® – mục 12.3"
+   ],
+   "keywords": [
+    "albumin,",
+    "4",
+    "giờ,",
+    "ngày.",
+    "80%",
+    "tiểu."
+   ],
+   "onScreen": [
+    {
+     "key": "pb",
+     "text": "85–95%",
+     "role": "stat",
+     "fact": "F4"
+    },
+    {
+     "key": "pbLabel",
+     "text": "Gắn protein (albumin)",
+     "role": "label",
+     "fact": "F4"
+    },
+    {
+     "key": "t12",
+     "text": "≈ 4 giờ",
+     "role": "stat",
+     "fact": "F4"
+    },
+    {
+     "key": "t12Label",
+     "text": "Thời gian bán thải",
+     "role": "label",
+     "fact": "F4"
+    },
+    {
+     "key": "urine",
+     "text": "≈ 80%",
+     "role": "stat",
+     "fact": "F4"
+    },
+    {
+     "key": "urineLabel",
+     "text": "Liều qua nước tiểu",
+     "role": "label",
+     "fact": "F4"
+    },
+    {
+     "key": "once",
+     "text": "→ 1 lần/ngày",
+     "role": "label",
+     "fact": "F1"
+    }
+   ],
+   "focus": [
+    [
+     "pb",
+     1.36
+    ],
+    [
+     "t12",
+     3.44
+    ],
+    [
+     "once",
+     4.32
+    ],
+    [
+     "urine",
+     6.72
+    ]
+   ]
+  },
+  {
+   "id": "FREE",
+   "chapter": "03 · DƯỢC ĐỘNG HỌC",
+   "title": "Thuốc tự do tăng khi…",
+   "dur": 285,
+   "voice": "S05",
+   "voiceSec": 6.4,
+   "transition": "fade",
+   "sources": [
+    "Nhãn INVANZ® – mục 12.3",
+    "PMID 37313264",
+    "PMID 37170398"
+   ],
+   "keywords": [
+    "thận",
+    "albumin",
+    "tự",
+    "do.",
+    "đáy",
+    "độc",
+    "tính"
+   ],
+   "onScreen": [
+    {
+     "key": "renal",
+     "text": "×2,3 · ×7,6",
+     "role": "stat",
+     "fact": "F5"
+    },
+    {
+     "key": "renalLabel",
+     "text": "AUC thuốc tự do: suy thận vừa → giai đoạn cuối",
+     "role": "label",
+     "fact": "F5"
+    },
+    {
+     "key": "alb",
+     "text": "25/29 ca",
+     "role": "stat",
+     "fact": "F6"
+    },
+    {
+     "key": "albLabel",
+     "text": "có albumin < 3,5 g/dL (trong số ca có dữ liệu albumin)",
+     "role": "label",
+     "fact": "F6"
+    },
+    {
+     "key": "trough",
+     "text": "37,8 vs 14,6",
+     "role": "stat",
+     "fact": "F7"
+    },
+    {
+     "key": "troughLabel",
+     "text": "Nồng độ đáy TB (µg/mL): có vs không độc tính · n = 102",
+     "role": "label",
+     "fact": "F7"
+    },
+    {
+     "key": "callout",
+     "text": "Thuốc tự do, nồng độ đáy cao ↔ liên quan độc tính thần kinh",
+     "role": "callout",
+     "fact": "F7"
+    }
+   ],
+   "focus": [
+    [
+     "renal",
+     0
+    ],
+    [
+     "alb",
+     0.8
+    ],
+    [
+     "trough",
+     3.76
+    ],
+    [
+     "callout",
+     4.72
+    ]
+   ]
+  },
+  {
+   "id": "MOA",
+   "chapter": "04 · CƠ CHẾ ADR",
+   "title": "Đối kháng thụ thể GABA-A",
+   "dur": 345,
+   "voice": "S06",
+   "voiceSec": 5.56,
+   "transition": "slide",
+   "sources": [
+    "PMID 21449629",
+    "PMID 34946536",
+    "PMID 40558212"
+   ],
+   "keywords": [
+    "β-lactam",
+    "GABA-A,",
+    "co",
+    "giật."
+   ],
+   "onScreen": [
+    {
+     "key": "pre",
+     "text": "Neuron trước synap",
+     "role": "label"
+    },
+    {
+     "key": "post",
+     "text": "Neuron sau synap",
+     "role": "label"
+    },
+    {
+     "key": "gaba",
+     "text": "GABA",
+     "role": "label",
+     "fact": "F8"
+    },
+    {
+     "key": "rec",
+     "text": "Thụ thể GABA-A",
+     "role": "label",
+     "fact": "F8"
+    },
+    {
+     "key": "cl",
+     "text": "Cl⁻ vào tế bào",
+     "role": "label",
+     "fact": "F8"
+    },
+    {
+     "key": "erta",
+     "text": "β-lactam đối kháng",
+     "role": "label",
+     "fact": "F8"
+    },
+    {
+     "key": "callout",
+     "text": "Mất ức chế → hạ ngưỡng co giật (cơ chế chung của β-lactam)",
+     "role": "callout",
+     "fact": "F8"
+    }
+   ],
+   "focus": []
+  },
+  {
+   "id": "SIGNS",
+   "chapter": "05 · LÂM SÀNG",
+   "title": "Biểu hiện thường gặp",
+   "dur": 330,
+   "voice": "S07",
+   "voiceSec": 9.25,
+   "transition": "fade",
+   "sources": [
+    "PMID 38715573",
+    "PMID 37313264",
+    "Nhãn INVANZ® – mục 6.2",
+    "PMID 28755095",
+    "PMID 35023080"
+   ],
+   "keywords": [
+    "Co",
+    "giật",
+    "ảo",
+    "giác,",
+    "mê",
+    "sảng",
+    "run,",
+    "nhầm"
+   ],
+   "onScreen": [
+    {
+     "key": "sz",
+     "text": "Co giật",
+     "role": "label",
+     "fact": "F9"
+    },
+    {
+     "key": "szPct",
+     "text": "70%",
+     "role": "stat",
+     "fact": "F9"
+    },
+    {
+     "key": "del",
+     "text": "Rối loạn ý thức / mê sảng",
+     "role": "label",
+     "fact": "F9"
+    },
+    {
+     "key": "delPct",
+     "text": "27%",
+     "role": "stat",
+     "fact": "F9"
+    },
+    {
+     "key": "hal",
+     "text": "Ảo giác",
+     "role": "label",
+     "fact": "F9"
+    },
+    {
+     "key": "halPct",
+     "text": "17%",
+     "role": "stat",
+     "fact": "F9"
+    },
+    {
+     "key": "n",
+     "text": "125 ca · tổng quan hệ thống · một BN có thể có nhiều biểu hiện",
+     "role": "note",
+     "fact": "F9"
+    },
+    {
+     "key": "tremor",
+     "text": "Run · giật cơ · đi không vững",
+     "role": "label",
+     "fact": "F10"
+    },
+    {
+     "key": "callout",
+     "text": "Dễ nhầm: bệnh tâm thần · nhiễm trùng TKTW",
+     "role": "callout",
+     "fact": "F10"
+    }
+   ],
+   "focus": [
+    [
+     "sz",
+     0
+    ],
+    [
+     "hal",
+     3.68
+    ],
+    [
+     "del",
+     4.52
+    ],
+    [
+     "tremor",
+     5.44
+    ],
+    [
+     "callout",
+     6.4
+    ]
+   ]
+  },
+  {
+   "id": "ONSET",
+   "chapter": "05 · LÂM SÀNG",
+   "title": "Thời gian khởi phát",
+   "dur": 360,
+   "voice": "S08",
+   "voiceSec": 10.24,
+   "transition": "fade",
+   "sources": [
+    "PMID 38715573",
+    "PMID 37313264",
+    "PMID 37724203"
+   ],
+   "keywords": [
+    "4,",
+    "2",
+    "tuần",
+    "đầu,",
+    "muộn",
+    "hồi",
+    "phục",
+    "1",
+    "tuần."
+   ],
+   "onScreen": [
+    {
+     "key": "median",
+     "text": "Ngày 4",
+     "role": "stat",
+     "fact": "F11"
+    },
+    {
+     "key": "iqr",
+     "text": "IQR 3–9 ngày",
+     "role": "label",
+     "fact": "F11"
+    },
+    {
+     "key": "late",
+     "text": "có ca > 2 tuần",
+     "role": "label",
+     "fact": "F11"
+    },
+    {
+     "key": "recov",
+     "text": "90,9%",
+     "role": "stat",
+     "fact": "F12"
+    },
+    {
+     "key": "recovLabel",
+     "text": "hồi phục hoàn toàn sau ngừng thuốc",
+     "role": "label",
+     "fact": "F12"
+    },
+    {
+     "key": "recovSub",
+     "text": "Thời gian hồi phục trung vị 7 ngày (1–42)",
+     "role": "label",
+     "fact": "F12"
+    }
+   ],
+   "focus": [
+    [
+     "median",
+     1.32
+    ],
+    [
+     "late",
+     4.32
+    ],
+    [
+     "recov",
+     5.6
+    ]
+   ]
+  },
+  {
+   "id": "RISK",
+   "chapter": "06 · NGUY CƠ",
+   "title": "Ai dễ gặp?",
+   "dur": 315,
+   "voice": "S09",
+   "voiceSec": 7.89,
+   "transition": "slide",
+   "sources": [
+    "PMID 38715573",
+    "PMID 37313264",
+    "PMID 32618479"
+   ],
+   "keywords": [
+    "cao",
+    "tuổi,",
+    "thận,",
+    "lọc",
+    "máu,",
+    "não",
+    "albumin",
+    "đúng."
+   ],
+   "onScreen": [
+    {
+     "key": "age",
+     "text": "Cao tuổi (TB 72)",
+     "role": "label",
+     "fact": "F13"
+    },
+    {
+     "key": "renal",
+     "text": "Suy thận · 62% số ca",
+     "role": "label",
+     "fact": "F13"
+    },
+    {
+     "key": "hd",
+     "text": "Lọc máu",
+     "role": "label",
+     "fact": "F13"
+    },
+    {
+     "key": "cns",
+     "text": "Bệnh TKTW nền · 42% số ca",
+     "role": "label",
+     "fact": "F13"
+    },
+    {
+     "key": "alb",
+     "text": "Albumin thấp",
+     "role": "label",
+     "fact": "F13"
+    },
+    {
+     "key": "callout",
+     "text": "Chỉ 15% ca dùng liều vượt khuyến cáo – liều đúng vẫn có thể gặp",
+     "role": "callout",
+     "fact": "F14"
+    }
+   ],
+   "focus": [
+    [
+     "age",
+     0.84
+    ],
+    [
+     "renal",
+     1.88
+    ],
+    [
+     "hd",
+     2.6
+    ],
+    [
+     "cns",
+     3.6
+    ],
+    [
+     "alb",
+     4.64
+    ],
+    [
+     "callout",
+     5.8
+    ]
+   ]
+  },
+  {
+   "id": "COMPARE",
+   "chapter": "07 · SO SÁNH",
+   "title": "Nguy cơ co giật|giữa các carbapenem",
+   "dur": 330,
+   "voice": "S10",
+   "voiceSec": 8.8,
+   "transition": "fade",
+   "sources": [
+    "PMID 24744302",
+    "PMID 35023080"
+   ],
+   "keywords": [
+    "imipenem",
+    "ý",
+    "nghĩa",
+    "meropenem"
+   ],
+   "onScreen": [
+    {
+     "key": "note",
+     "text": "Phân tích gộp RCT · OR so với kháng sinh không phải carbapenem",
+     "role": "note",
+     "fact": "F15"
+    },
+    {
+     "key": "imi",
+     "text": "OR 3,50 (2,23–5,49)",
+     "role": "stat",
+     "fact": "F15"
+    },
+    {
+     "key": "erta",
+     "text": "OR 1,32 (0,22–7,74)",
+     "role": "stat",
+     "fact": "F15"
+    },
+    {
+     "key": "mero",
+     "text": "OR 1,04 (0,61–1,77)",
+     "role": "stat",
+     "fact": "F15"
+    },
+    {
+     "key": "dori",
+     "text": "OR 0,44 (0,13–1,53)",
+     "role": "stat",
+     "fact": "F15"
+    },
+    {
+     "key": "axis01",
+     "text": "0,1",
+     "role": "axis"
+    },
+    {
+     "key": "axis1",
+     "text": "1",
+     "role": "axis"
+    },
+    {
+     "key": "axis10",
+     "text": "10",
+     "role": "axis"
+    },
+    {
+     "key": "less",
+     "text": "← ít co giật hơn",
+     "role": "label"
+    },
+    {
+     "key": "more",
+     "text": "nhiều hơn →",
+     "role": "label"
+    },
+    {
+     "key": "sig",
+     "text": "Chỉ imipenem tăng có ý nghĩa · CI cắt 1 = không khác biệt",
+     "role": "note",
+     "fact": "F15"
+    },
+    {
+     "key": "callout",
+     "text": "Sau độc tính do ertapenem: có thể cân nhắc meropenem (dữ liệu ca lâm sàng)",
+     "role": "callout",
+     "fact": "F16"
+    }
+   ],
+   "focus": [
+    [
+     "imi",
+     0
+    ],
+    [
+     "callout",
+     3.44
+    ],
+    [
+     "mero",
+     6.2
+    ]
+   ]
+  },
+  {
+   "id": "VPA",
+   "chapter": "08 · TƯƠNG TÁC",
+   "title": "Carbapenem + valproat",
+   "dur": 285,
+   "voice": "S11",
+   "voiceSec": 6.77,
+   "transition": "slide",
+   "sources": [
+    "PMID 38563451",
+    "PMID 34806574",
+    "Nhãn INVANZ® – mục 5.3"
+   ],
+   "keywords": [
+    "valproat",
+    "tụt",
+    "co",
+    "giật.",
+    "Tránh"
+   ],
+   "onScreen": [
+    {
+     "key": "band",
+     "text": "Vùng điều trị",
+     "role": "label",
+     "fact": "F17"
+    },
+    {
+     "key": "drop",
+     "text": "88,8 → 24,6",
+     "role": "stat",
+     "fact": "F17"
+    },
+    {
+     "key": "dropLabel",
+     "text": "Valproat (µg/mL) khi dùng cùng meropenem",
+     "role": "label",
+     "fact": "F17"
+    },
+    {
+     "key": "irr",
+     "text": "IRR 2,60",
+     "role": "stat",
+     "fact": "F17"
+    },
+    {
+     "key": "irrLabel",
+     "text": "Tần suất cơn co giật khi phối hợp (KTC 95%: 1,61⁠–⁠4,21) · BN động kinh",
+     "role": "label",
+     "fact": "F17"
+    },
+    {
+     "key": "callout",
+     "text": "Tránh phối hợp – ưu tiên kháng sinh khác",
+     "role": "callout",
+     "fact": "F17"
+    }
+   ],
+   "focus": [
+    [
+     "drop",
+     1.44
+    ],
+    [
+     "irr",
+     4
+    ],
+    [
+     "callout",
+     5.28
+    ]
+   ]
+  },
+  {
+   "id": "PRACTICE",
+   "chapter": "09 · THỰC HÀNH",
+   "title": "5 việc cần làm",
+   "dur": 660,
+   "voice": "S12",
+   "voiceSec": 19.68,
+   "transition": "fade",
+   "sources": [
+    "Nhãn INVANZ® – mục 2.4, 5.2",
+    "PMID 38715573",
+    "PMID 21449629",
+    "PMID 37313264",
+    "PMID 37170398",
+    "PMID 35023080"
+   ],
+   "keywords": [
+    "500 mg",
+    "30 mL/phút",
+    "2",
+    "tuần",
+    "đầu.",
+    "ngừng",
+    "thuốc",
+    "benzodiazepin.",
+    "meropenem"
+   ],
+   "onScreen": [
+    {
+     "key": "s1",
+     "text": "ClCr ≤ 30 mL/phút/1,73 m² → 500 mg/ngày",
+     "role": "title",
+     "fact": "F18"
+    },
+    {
+     "key": "s1sub",
+     "text": "Rà soát tiền sử bệnh thần kinh trung ương",
+     "role": "label",
+     "fact": "F13"
+    },
+    {
+     "key": "s2",
+     "text": "Theo dõi sát 2 tuần đầu",
+     "role": "title",
+     "fact": "F11"
+    },
+    {
+     "key": "s2sub",
+     "text": "Khởi phát trung vị ngày 4 (IQR 3⁠–⁠9)",
+     "role": "label",
+     "fact": "F11"
+    },
+    {
+     "key": "s3",
+     "text": "Nghi ngờ → ngừng ertapenem",
+     "role": "title",
+     "fact": "F19"
+    },
+    {
+     "key": "s3sub",
+     "text": "Loại trừ nguyên nhân khác",
+     "role": "label",
+     "fact": "F19"
+    },
+    {
+     "key": "s4",
+     "text": "Cắt cơn: benzodiazepin",
+     "role": "title",
+     "fact": "F19"
+    },
+    {
+     "key": "s4sub",
+     "text": "Cân nhắc lọc máu nếu suy thận nặng",
+     "role": "label",
+     "fact": "F19"
+    },
+    {
+     "key": "s5",
+     "text": "Cân nhắc meropenem · TDM",
+     "role": "title",
+     "fact": "F16"
+    },
+    {
+     "key": "s5sub",
+     "text": "Meropenem: dữ liệu ca lâm sàng · đo nồng độ đáy ở nhóm nguy cơ cao",
+     "role": "label",
+     "fact": "F19"
+    }
+   ],
+   "focus": [
+    [
+     "s1",
+     0
+    ],
+    [
+     "s2",
+     8.4
+    ],
+    [
+     "s3",
+     10.32
+    ],
+    [
+     "s4",
+     13.44
+    ],
+    [
+     "s5",
+     15.76
+    ]
+   ]
+  },
+  {
+   "id": "TAKEAWAY",
+   "chapter": "GHI NHỚ",
+   "title": "3 điểm mấu chốt",
+   "dur": 165,
+   "voice": null,
+   "voiceSec": 0,
+   "transition": "fade",
+   "sources": [
+    "PMID 38715573",
+    "PMID 37313264",
+    "Nhãn INVANZ® – mục 5.3"
+   ],
+   "onScreen": [
+    {
+     "key": "k1",
+     "text": "Nghĩ tới độc tính thần kinh ở BN cao tuổi, suy thận, có bệnh TKTW nền",
+     "role": "label",
+     "fact": "F13"
+    },
+    {
+     "key": "k2",
+     "text": "Khởi phát trung vị ngày 4 (IQR 3⁠–⁠9); ngừng thuốc → đa số hồi phục",
+     "role": "label",
+     "fact": "F11"
+    },
+    {
+     "key": "k3",
+     "text": "Không phối hợp carbapenem với valproat",
+     "role": "label",
+     "fact": "F17"
+    }
+   ],
+   "focus": []
+  },
+  {
+   "id": "OUTRO",
+   "chapter": "",
+   "title": "",
+   "dur": 345,
+   "voice": "S13",
+   "voiceSec": 8.72,
+   "voiceLeadFrames": 30,
+   "transition": null,
+   "sources": [
+    "Khoa Dược – Bệnh viện Đa khoa Xanh Pôn"
+   ],
+   "keywords": [],
+   "onScreen": [
+    {
+     "key": "brand",
+     "text": "KHOA DƯỢC – BỆNH VIỆN ĐA KHOA XANH PÔN",
+     "role": "label"
+    },
+    {
+     "key": "title",
+     "text": "Nhận diện sớm —|Xử trí kịp thời",
+     "role": "title"
+    },
+    {
+     "key": "body",
+     "text": "Nội dung tham khảo dành cho nhân viên y tế, tổng hợp từ nhãn thuốc INVANZ® và tài liệu khoa học đã công bố; không thay thế chỉ định của bác sĩ.",
+     "role": "note"
+    }
+   ]
+  }
+ ]
+}

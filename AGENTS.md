@@ -44,8 +44,15 @@ Khi người dùng yêu cầu làm, sửa, kiểm tra hoặc xuất bản video 
 - `references/qa-checklist.md`.
 
 Tóm tắt luật:
-- **Video được dùng chữ** (tiêu đề, nhãn, số liệu, phụ đề karaoke), mặc định dựng **3D kết hợp 2.5D**, có nhạc nền tự hạ âm lượng khi có lời, và có **disclaimer** ở đầu và cuối video.
-- Mọi chữ, số và lời đọc phải có nguồn; **footer PMID ở mọi cảnh nội dung**; logo và slogan BV Xanh Pôn đúng nguyên bản.
+- **Khung "medical-clean" bắt buộc** (theo template HyperFrames của Khoa Dược, thông số trong `brand/brand.json → frame`): header bệnh viện cố định (2 logo, tên song ngữ, tiêu ngữ), nền trắng, đỏ đô `#BE1238`/`#880E28`, phụ đề viên đỏ, footer `NGUỒN: PMID …` và `TRANG XX / YY`.
+- **Video được dùng chữ** (tiêu đề, nhãn, số liệu, phụ đề), dựng **3D kết hợp 2.5D tông sáng bên trong khung**, có nhạc nền tự hạ âm lượng khi có lời, và có **disclaimer** ở đầu và cuối video.
+- **Bản mẫu chuẩn đã duyệt:** `output/video/ertapenem-co-giat-medical-clean.mp4` (mã nguồn `video-studio/src/mc/`). Video mới đi theo bản này:
+  - mở bằng trang "LƯU Ý" trong khung, không có cảnh mở logo;
+  - outro theo template HyperFrames: logo gốc 136 px không cắt tròn hay phóng to, nhãn Khoa Dược, tiêu đề đỏ;
+  - lời đọc outro "<thông điệp chốt>. Biên soạn bởi Khoa Dược, Bệnh viện Đa khoa Xanh Pôn.", **không đọc slogan**;
+  - phụ đề viên đỏ **chữ thường**, không karaoke hay chip từ khóa, ngắt theo cụm nghĩa;
+  - footer hiện đủ mọi nguồn.
+- Mọi chữ, số và lời đọc phải có nguồn; logo và slogan BV Xanh Pôn đúng nguyên bản; âm lượng chuẩn hóa về −14 đến −16 LUFS bằng ffmpeg đầy đủ.
 - Dừng xin duyệt sau kịch bản, sau prototype và trước khi tiêu credit ElevenLabs.
 - Nhạc, SFX và asset chưa rõ giấy phép chỉ dùng cho bản nháp nội bộ.
 - Công cụ:
